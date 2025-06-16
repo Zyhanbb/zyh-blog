@@ -15,7 +15,7 @@ export interface ListItem {
   id: string;      // 列表项的唯一标识符
   title: string;   // 列表项的标题
   url: string;     // 列表项点击后跳转的URL
-  date: string;    // 列表项的日期
+
 }
 
 // 组件的属性接口
@@ -30,7 +30,6 @@ interface TabbedListProps {
 const TabbedList: React.FC<TabbedListProps> = ({
   tabs,
   data,
-  defaultTabId,
   itemsPerPage = 4,  // 默认每页显示5条
 }) => {
   const { lang } = useLanguage();  // 获取当前语言
@@ -89,7 +88,7 @@ const TabbedList: React.FC<TabbedListProps> = ({
               {/* 项目标题 */}
               <ItemTitle>{item.title}</ItemTitle>
               {/* 项目日期 */}
-              <ItemDate>{item.date}</ItemDate>
+              
             </ListItemRow>
           ))}
         </List>
@@ -226,12 +225,7 @@ const ItemTitle = styled.div`
   flex: 1;
 `;
 
-// 列表项日期样式
-const ItemDate = styled.div`
-  color: var(--accent);
-  margin-left: 1rem;
-  white-space: nowrap;
-`;
+
 
 // 分页控制样式
 const Pagination = styled.div`

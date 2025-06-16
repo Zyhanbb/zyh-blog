@@ -80,6 +80,24 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledLink2 = styled.a` 
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  width: 75px; /* 设置固定宽度 */
+  text-align: center; /* 文本居中 */
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* 确保在移动视图下占据全宽 */
+    display: block;
+  }
+`;
+
 const Controls = styled.div`
   display: flex;
   align-items: center;
@@ -158,8 +176,8 @@ const Header: React.FC = () => {
           <StyledLink to="/" onClick={() => setIsOpen(false)}>{t.home}</StyledLink>
           {/* <StyledLink to="/tech" onClick={() => setIsOpen(false)}>{t.tech_blog}</StyledLink>
           <StyledLink to="/life" onClick={() => setIsOpen(false)}>{t.life_blog}</StyledLink> */}
-          <StyledLink as="a" href="https://weibo.com/u/6885353494" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.tech_blog}</StyledLink>
-          <StyledLink as="a" href="https://blog.csdn.net/qq_45104795?type=blog" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.life_blog}</StyledLink>
+          <StyledLink2 href="https://weibo.com/u/6885353494" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.tech_blog}</StyledLink2>
+          <StyledLink2 href="https://blog.csdn.net/qq_45104795?type=blog" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.life_blog}</StyledLink2>
         </NavItems>
       </Nav>
       <Controls>

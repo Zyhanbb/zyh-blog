@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useLanguage } from '../contexts/LanguageContext.tsx';
 import profileImg from '../assets/images/hyc.png'; // 确保路径正确
-import { GithubOutlined, ZhihuOutlined, MailOutlined ,BilibiliOutlined} from '@ant-design/icons';
-import TabbedList, { Tab, ListItem } from '../components/TabbedList';
+import { GithubOutlined, ZhihuOutlined, BilibiliOutlined} from '@ant-design/icons';
+import TabbedList from '../components/TabbedList.tsx';
+import type { Tab, ListItem } from '../components/TabbedList.tsx';
 import ExperienceCard from '../components/ExperienceCard.tsx'
 const tabs: Tab[] = [
   { id: 'submitted', label: '在投', labelEn: 'Submitted' },
@@ -140,12 +141,6 @@ const BlogsSection = styled.section`
   margin-top: 3rem;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--text);
-  text-align: center; /* 标题居中 */
-`;
 
 const BlogCards = styled.div`
   display: grid;
