@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'PingFang SC', 'Hiragino Sans', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+:root {
+  --bg: #fff;
+  --text: #222;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --primary: #e48ecf;
+}
+body[data-theme="dark"] {
+  --bg: #181818;
+  --text: #fff;
+  --card-bg: #232323;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+footer {
+  text-align: center;
+  color: #888;
+  padding: 2rem 0 1rem 0;
+  font-size: 1rem;
+  margin-top: auto;
+}
+@media (max-width: 800px) {
+  .categories {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .category-card {
+    width: 100%;
+  }
+}
