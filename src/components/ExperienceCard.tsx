@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row } from 'antd';
+import { Card } from 'antd';
 import styled from 'styled-components';
 import { useLanguage } from '../contexts/LanguageContext';
 
