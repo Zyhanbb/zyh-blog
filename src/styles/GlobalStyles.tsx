@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
     --text:  #181818;
     --hover-text: rgb(233, 8, 8);
     --card-bg: #fff;
-    --card-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
     --primary: rgb(237, 132, 185); 
     --accent: rgb(98, 86, 92); /* 与light模式的accent保持一致 */
     --tab-bg: rgb(231, 226, 228);

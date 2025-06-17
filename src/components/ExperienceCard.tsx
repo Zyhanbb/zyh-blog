@@ -6,8 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const ExperienceCard: React.FC = () => {
   const { t } = useLanguage();
   return (
-  <Row gutter={16}>
-    <Col span={12}>
+    <CardContainer>
       <StyledCard title={t.education}>
         <ContentWrapper>
           <TimeText>2018.9-2022.6</TimeText>
@@ -17,8 +16,6 @@ const ExperienceCard: React.FC = () => {
           <ContentText>山东大学-软件工程专业-工学博士</ContentText>
         </ContentWrapper>
       </StyledCard>
-    </Col>
-    <Col span={12}>
       <StyledCard title={t.work_experience}>
         <ContentWrapper>
           <TimeText>2018.9-至今</TimeText>
@@ -28,13 +25,7 @@ const ExperienceCard: React.FC = () => {
           <ContentText>学生</ContentText>
         </ContentWrapper>
       </StyledCard>
-    </Col>
-    {/* <Col span={8}>
-      <Card title="Card title" style={{ boxShadow: '0 0 15px 5px rgba(0, 0, 0, 0.1)' }}>
-        Card content
-      </Card>
-    </Col> */}
-  </Row>
+    </CardContainer>
   );
 };
 
@@ -43,20 +34,26 @@ const StyledCard = styled(Card)`
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
   background: var(--bg);
   border-radius: 12px;
+  height: 100%; /* 确保卡片占满容器高度 */
+  display: flex;
+  flex-direction: column;
   
   .ant-card-head {
+    min-height: 50px;
     border-bottom: 1px solid var(--border);
     color: var(--text);
   }
-
+  .ant-card-body{
+    padding: 0 24px 20px;
+    flex: 1; /* 让内容区域自动填充剩余空间 */
+  }
   .ant-card-head-title {
     color: var(--text);
     font-weight: 600;
     font-size: 1.2rem;
-    
   }
   @media (max-width: 768px) {
-   height: 280px;
+    height: auto; /* 在移动端自适应高度 */
   }
 `;
 
@@ -77,6 +74,15 @@ const ContentText = styled.div`
   font-size: 14px;
   color: var(--text);
   line-height: 1.5;
+`;
+
+// 在父容器中添加样式
+const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列布局 */
+  gap: 20px; /* 卡片之间的间距 */
+  
+  
 `;
 
 export default ExperienceCard;

@@ -54,6 +54,7 @@ const ProfileSection = styled.section`
   align-items: center; /* 垂直居中 */
   
   @media (max-width: 768px) {
+    margin-bottom: 0;
     flex-direction: column;
     text-align: center; /* 文本居中 */
   }
@@ -144,7 +145,11 @@ const BlogsSection = styled.section`
 
 const BlogCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 
+    - auto-fill: 自动填充列数，尽可能多地创建列
+    - minmax(300px, 1fr): 每列最小宽度300px，最大宽度1fr(剩余空间的一份)
+    - 1fr: 弹性单位，表示占用剩余空间的一份
+  */
   gap: 2rem;
   
   @media (max-width: 768px) {

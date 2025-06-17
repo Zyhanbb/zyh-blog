@@ -11,15 +11,15 @@ const HeaderContainer = styled.header`
   gap: 2rem; /* 调整列之间的间距 */
   padding: 1rem 2rem;
   background-color: var(--bg); /* 使用CSS变量 */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
-
+  border-radius: 12px; /* 圆角大小 */
   @media (max-width: 768px) {
-    grid-template-columns: auto auto auto; /* Logo / 控件 / 汉堡菜单  */
+    grid-template-columns: auto 1fr auto; /* Logo / 控件 / 汉堡菜单  */
     padding: 0rem 1rem;
-    gap: 1rem;
+    gap: 0;
   }
 `;
 
@@ -98,6 +98,19 @@ const StyledLink2 = styled.a`
   }
 `;
 
+const Controls1 = styled.div`
+  display: none;
+  
+  @media (max-width: 768px) {
+   
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* 减小按钮之间的间距 */
+    grid-column: 2 / 3;
+    justify-self: end; /* 将控件推到右侧 */
+  }
+`;
+
 const Controls = styled.div`
   display: flex;
   align-items: center;
@@ -149,10 +162,16 @@ const ToggleButton = styled.button`  background: none;
   &:focus {
     outline: none; /* 移除点击后的黑色边框 */
   }
+  @media (max-width: 768px) {
+    width: 30px; /* 设置固定宽度 */
+  }
 `;
 
 const LanguageToggleButton = styled(ToggleButton)`
   width: 75px; /* 根据内容调整 */
+  @media (max-width: 768px) {
+    width: 30px; /* 设置固定宽度 */
+  }
 `;
 
 const Header: React.FC = () => {
@@ -168,6 +187,14 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Logo>HYC Blog</Logo>
+      <Controls1>
+        <ToggleButton onClick={toggleTheme} title={t.theme_toggle_label}>
+          {theme === 'light' ? '🌙' : '☀️'}
+        </ToggleButton>
+        <LanguageToggleButton onClick={toggleLanguage}>
+          {t.lang_toggle_label}
+        </LanguageToggleButton>
+      </Controls1>
       <BurgerMenu onClick={toggleMenu}>
         ☰ 
       </BurgerMenu>
