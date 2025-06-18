@@ -53,6 +53,7 @@ const StyledCard = styled(Card)`
     font-size: 1.2rem;
   }
   @media (max-width: 768px) {
+    
     height: auto; /* 在移动端自适应高度 */
   }
 `;
@@ -80,8 +81,10 @@ const ContentText = styled.div`
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 两列布局 */
-  gap: 20px; /* 卡片之间的间距 */
-  
+  gap: 15px; /* 卡片之间的间距 */
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* 在移动端改为单列布局 */
+  }
   
 `;
 

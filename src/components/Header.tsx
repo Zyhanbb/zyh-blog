@@ -29,7 +29,7 @@ const Logo = styled.div`
   color: var(--text); /* 确保Logo颜色适应主题 */
 `;
 
-const Nav = styled.nav<{ isOpen: boolean }>`
+const Nav = styled.nav<{ $isOpen: boolean }>`
   display: flex;
   gap: 1.5rem;
   justify-content: flex-end; /* 在大屏幕上将导航链接推到右侧 */
@@ -40,14 +40,14 @@ const Nav = styled.nav<{ isOpen: boolean }>`
     grid-column: 3 / 4;
     position: absolute;
     top: 100%;
-    right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+    right: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
     background-color: var(--bg); /* 使用CSS变量 */
     padding: 1rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
     width: 100%; /* 确保在移动视图下占据全宽 */
     text-align: center; /* 菜单项居中 */
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')}; /* 在移动视图下根据isOpen显示/隐藏 */
+    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')}; /* 在移动视图下根据isOpen显示/隐藏 */
     left: 0;
   }
 `;
@@ -198,7 +198,7 @@ const Header: React.FC = () => {
       <BurgerMenu onClick={toggleMenu}>
         ☰ 
       </BurgerMenu>
-      <Nav isOpen={isOpen} onMouseLeave={() => setIsOpen(false)}>
+      <Nav $isOpen={isOpen} onMouseLeave={() => setIsOpen(false)}>
         <NavItems>
           <StyledLink to="/" onClick={() => setIsOpen(false)}>{t.home}</StyledLink>
           {/* <StyledLink to="/tech" onClick={() => setIsOpen(false)}>{t.tech_blog}</StyledLink>

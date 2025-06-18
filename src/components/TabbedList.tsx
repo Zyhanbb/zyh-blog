@@ -60,8 +60,9 @@ const TabbedList: React.FC<TabbedListProps> = ({
         {tabs.map(tab => (
           <TabButton
             key={tab.id}
-            isActive={tab.id === activeTab}
+            $isActive={tab.id === activeTab}
             onClick={() => handleTabChange(tab.id)}
+            $isEnglish={lang === 'en'}
           >
             {lang === 'en' ? tab.labelEn : tab.label}
           </TabButton>
@@ -146,18 +147,23 @@ const TabsWrapper = styled.div`
 `;
 
 // 标签按钮样式
-const TabButton = styled.button<{ isActive: boolean }>`
+const TabButton = styled.button<{ $isActive: boolean; $isEnglish: boolean }>`
   flex: 1;
   
-  background: ${({ isActive }) => (isActive ? 'var(--tab-bg)' : 'transparent')};
-  color: ${({ isActive }) => (isActive ? 'var(--text)' : 'var(--accent)')};
+  background: ${({ $isActive }) => ($isActive ? 'var(--tab-bg)' : 'transparent')};
+  color: ${({ $isActive }) => ($isActive ? 'var(--text)' : 'var(--accent)')};
   border: none;
   padding: 0.5rem 0;
-  font-weight: ${({ isActive }) => (isActive ? 600 : 500)};
+  font-weight: ${({ $isActive }) => ($isActive ? 600 : 500)};
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
   outline: none;  /* 移除点击时的黑框 */
+  font-size: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: ${({ $isEnglish }) => $isEnglish ? '0.9rem' : '1rem'};
+  }
 
   // 鼠标悬停时的样式
   &:hover {
@@ -168,6 +174,7 @@ const TabButton = styled.button<{ isActive: boolean }>`
   &:focus {
     outline: none;  /* 确保在focus状态下也没有黑框 */
   }
+  
 `;
 
 // 列表容器样式
@@ -175,6 +182,9 @@ const ListContainer = styled.div`
   height: 235px;  // 固定高度
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 // 列表样式
@@ -223,6 +233,11 @@ const ListItemRow = styled.div`
 const ItemTitle = styled.div`
   color: var(--text);
   flex: 1;
+  font-size: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 
@@ -241,12 +256,17 @@ const PageButton = styled.button`
   background: var(--bg);
   color: var(--text);
   border: none;
-  padding: 0.35rem 0.75rem ;
+  padding: 0.35rem 0.75rem;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
 
   &:hover:not(:disabled) {
     background: var(--accent);

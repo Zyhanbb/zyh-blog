@@ -43,7 +43,7 @@ const sampleData: Record<string, ListItem[]> = {
 const Container = styled.div`
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
 `;
 
 const ProfileSection = styled.section`
@@ -145,16 +145,12 @@ const BlogsSection = styled.section`
 
 const BlogCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 
     - auto-fill: 自动填充列数，尽可能多地创建列
-    - minmax(300px, 1fr): 每列最小宽度300px，最大宽度1fr(剩余空间的一份)
+    - minmax(200px, 1fr): 每列最小宽度300px，最大宽度1fr(剩余空间的一份)
     - 1fr: 弹性单位，表示占用剩余空间的一份
   */
   gap: 2rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 const BlogCard = styled.a` /* Changed from styled(Link) to styled.a */
@@ -223,10 +219,10 @@ const HomePage: React.FC = () => {
             <SocialIcon href="https://github.com/your-github" target="_blank" rel="noopener noreferrer" title="GitHub">
               <GithubOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
             </SocialIcon>
-            <SocialIcon href="https://www.zhihu.com/" target="_blank" rel="noopener noreferrer" title="Zhihu">
+            <SocialIcon href="https://www.zhihu.com/people/yi-xie-zhi-qiu-41-95" target="_blank" rel="noopener noreferrer" title="Zhihu">
               <ZhihuOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
             </SocialIcon>
-            <SocialIcon href="mailto:your-email@example.com" title="Email">
+            <SocialIcon href="https://space.bilibili.com/506432343?spm_id_from=333.1387.follow.user_card.click" title="Email">
               <BilibiliOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
             </SocialIcon>
           </SocialLinks>
