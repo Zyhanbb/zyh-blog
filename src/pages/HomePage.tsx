@@ -145,12 +145,10 @@ const BlogsSection = styled.section`
 
 const BlogCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 
-    - auto-fill: 自动填充列数，尽可能多地创建列
-    - minmax(200px, 1fr): 每列最小宽度300px，最大宽度1fr(剩余空间的一份)
-    - 1fr: 弹性单位，表示占用剩余空间的一份
-  */
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr; /* 始终两列 */
+  
+  gap: 1rem;
+  width: 100%;
 `;
 
 const BlogCard = styled.a` /* Changed from styled(Link) to styled.a */
@@ -216,7 +214,7 @@ const HomePage: React.FC = () => {
           <Bio>{t.bio}</Bio>
 
           <SocialLinks>
-            <SocialIcon href="https://github.com/your-github" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <SocialIcon href="https://github.com/hyc619" target="_blank" rel="noopener noreferrer" title="GitHub">
               <GithubOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
             </SocialIcon>
             <SocialIcon href="https://www.zhihu.com/people/yi-xie-zhi-qiu-41-95" target="_blank" rel="noopener noreferrer" title="Zhihu">

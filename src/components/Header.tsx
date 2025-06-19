@@ -67,7 +67,7 @@ const StyledLink = styled(Link)`
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem 0;
-  width: 75px; /* 设置固定宽度 */
+  width: 80px; /* 设置固定宽度 */
   text-align: center; /* 文本居中 */
 
   &:hover {
@@ -85,7 +85,7 @@ const StyledLink2 = styled.a`
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem 0;
-  width: 75px; /* 设置固定宽度 */
+  width: 80px; /* 设置固定宽度 */
   text-align: center; /* 文本居中 */
 
   &:hover {

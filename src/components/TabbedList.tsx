@@ -132,7 +132,7 @@ const Container = styled.div`
   border-radius: 12px;            /* 圆角大小 */
   padding: 1rem;                  /* 内边距 */
   box-shadow: var(--card-shadow); /* 阴影效果 */
-  max-width: 800px;              /* 最大宽度 */
+  width: 100%;
   margin: 40px auto 15px;             /* 外边距 */
   /* border: 1px solid var(--primary); 边框样式：1px实线，使用主题色 */
 `;
