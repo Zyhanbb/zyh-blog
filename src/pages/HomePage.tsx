@@ -173,6 +173,9 @@ const CardTitle = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--primary);
+  @media(max-width: 440px){
+    font-size: 1.2rem;
+  }
 `;
 
 const CardDescription = styled.p`
@@ -185,6 +188,9 @@ const CardDescription = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   margin-bottom: 1rem;
+  @media(max-width: 440px){
+    font-size: 0.9rem;
+  }
 `;
 
 const CardFooter = styled.div`
@@ -197,6 +203,9 @@ const CardFooter = styled.div`
 const CardLink = styled.span`
   color: var(--primary);
   font-weight: 500;
+  @media(max-width: 440px){
+    font-size: 0.9rem;
+  }
 `;
 
 const HomePage: React.FC = () => {

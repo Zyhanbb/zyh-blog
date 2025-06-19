@@ -166,7 +166,7 @@ const ToggleButton = styled.button`  background: none;
     outline: none; /* 移除点击后的黑色边框 */
   }
   @media (max-width: 768px) {
-    width: 30px; /* 设置固定宽度 */
+    width: 35px; /* 设置固定宽度 */
     
   }
 `;
@@ -174,7 +174,8 @@ const ToggleButton = styled.button`  background: none;
 const LanguageToggleButton = styled(ToggleButton)`
   width: 75px; /* 根据内容调整 */
   @media (max-width: 768px) {
-    width: 30px; /* 设置固定宽度 */
+    width: 40px; /* 设置固定宽度 */
+     padding: 0.3em 0;
   }
 `;
 

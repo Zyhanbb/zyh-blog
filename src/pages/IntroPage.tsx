@@ -139,7 +139,7 @@ const IntroPage: React.FC = () => {
   let ballpitCount = 100;
   if (typeof window !== 'undefined') {
     if (window.matchMedia('(max-width: 440px)').matches) {
-      ballpitCount = 25;
+      ballpitCount = 30;
     } else if (window.matchMedia('(max-width: 768px)').matches) {
       ballpitCount = 50;
     }
