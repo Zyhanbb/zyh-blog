@@ -2,6 +2,7 @@
   "files": [],
   "compilerOptions": {
     "jsx": "react-jsx",
+    "types": ["react", "react-dom"],
     "target": "es2021",
     "lib": ["dom", "es2021"]
   },

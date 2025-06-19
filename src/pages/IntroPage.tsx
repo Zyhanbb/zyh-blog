@@ -225,7 +225,7 @@ const IntroPage: React.FC = () => {
             maxIterations={100}
             sequential={true}
             revealDirection="start"
-            //useOriginalCharsOnly={true}
+            useOriginalCharsOnly={true}
           />
         </Title>
       )}

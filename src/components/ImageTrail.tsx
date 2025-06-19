@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import "./ImageTrail.css";
@@ -1240,7 +1241,7 @@ export default function ImageTrail({
   items = [],
   variant = 1,
   enableClick = false,
-}: ImageTrailProps): JSX.Element {
+}: ImageTrailProps): React.JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const instanceRef = useRef<any>(null);
 
