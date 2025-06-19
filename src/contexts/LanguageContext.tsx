@@ -33,8 +33,8 @@ const translations: Record<'zh' | 'en', Translation> = {
     tech_blog: "技术博客",
     life_blog: "生活博客",
     welcome: "欢迎访问我的博客",
-    tech_blog_desc: "探索关于编程、技术趋势和软件开发的文章。",
-    life_blog_desc: "阅读旅行经历、美食推荐和个人故事。",
+    tech_blog_desc: "技术趋势、经验教程、学习笔记。",
+    life_blog_desc: "旅行经历、美食推荐、个人故事。",
     profile_desc:
       "目前就读于山东大学，正在攻读博士学位，研究方向为自然语言处理。导师是孙宇清教授。",
     author: "韩雨辰",
@@ -53,9 +53,9 @@ const translations: Record<'zh' | 'en', Translation> = {
     life_blog: "Life Blog",
     welcome: "Welcome to my blog",
     tech_blog_desc:
-      "Explore articles about programming, technology trends, and software development.",
+      "Technology, tutorials, learning notes...",
     life_blog_desc:
-      "Read about travel experiences, food recommendations, and personal stories.",
+      "Travel, food, personal stories...",
     profile_desc:
       "Currently studying at Shandong University, pursuing a PhD, research direction is NLP. Supervisor: Prof. Sun Yuqing.",
     author: "Yuchen Han",

@@ -135,9 +135,15 @@ const IntroPage: React.FC = () => {
   const [showImageTrail, setShowImageTrail] = useState(false);
   const [showDecryptedText, setShowDecryptedText] = useState(false);
 
-  // 判断屏幕宽度是否小于等于768px
-  const isSmallScreen = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
-  const ballpitCount = isSmallScreen ? 50 : 100;
+  // 判断屏幕宽度
+  let ballpitCount = 100;
+  if (typeof window !== 'undefined') {
+    if (window.matchMedia('(max-width: 440px)').matches) {
+      ballpitCount = 25;
+    } else if (window.matchMedia('(max-width: 768px)').matches) {
+      ballpitCount = 50;
+    }
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {

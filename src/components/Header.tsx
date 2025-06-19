@@ -43,9 +43,10 @@ const Nav = styled.nav<{ $isOpen: boolean }>`
     right: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
     background-color: var(--bg); /* 使用CSS变量 */
     padding: 1rem;
+    font-size:0.8rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
-    width: 100%; /* 确保在移动视图下占据全宽 */
+    width: 120%; /* 确保在移动视图下占据全宽 */
     text-align: center; /* 菜单项居中 */
     display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')}; /* 在移动视图下根据isOpen显示/隐藏 */
     left: 0;
@@ -135,6 +136,8 @@ const BurgerMenu = styled.button`
   @media (max-width: 768px) {
     display: block;
     grid-column:  3 / 4; /* 在小屏幕上放置在第二列 */
+    width:100%;
+   
     &:focus {
       outline: none; /* 移除点击后的黑色边框 */
     }
@@ -164,6 +167,7 @@ const ToggleButton = styled.button`  background: none;
   }
   @media (max-width: 768px) {
     width: 30px; /* 设置固定宽度 */
+    
   }
 `;
 
