@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef, ReactNode } from 'react'
-import { motion, HTMLMotionProps } from 'framer-motion'
+import { useEffect, useState, useRef } from 'react'
+import { motion } from 'framer-motion'
+import type { HTMLMotionProps } from 'framer-motion'
 
 const styles = {
     wrapper: {
@@ -54,7 +55,7 @@ export default function DecryptedText({
     const containerRef = useRef<HTMLSpanElement>(null)
 
     useEffect(() => {
-        let interval: NodeJS.Timeout;
+        let interval: number;
         let currentIteration = 0
 
         const getNextIndex = (revealedSet: Set<number>): number => {

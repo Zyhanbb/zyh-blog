@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from "react";
+import type { WebGLRendererParameters } from 'three';
 import {
   Clock,
   PerspectiveCamera,
   Scene,
   WebGLRenderer,
-  WebGLRendererParameters,
   SRGBColorSpace,
   MathUtils,
   Vector2,
@@ -652,17 +652,17 @@ function isInside(rect: DOMRect) {
   );
 }
 
-const { randFloat, randFloatSpread } = MathUtils;
-const F = new Vector3();
-const I = new Vector3();
-const O = new Vector3();
-const V = new Vector3();
-const B = new Vector3();
-const N = new Vector3();
-const _ = new Vector3();
-const j = new Vector3();
-const H = new Vector3();
-const T = new Vector3();
+// const { randFloat, randFloatSpread } = MathUtils;
+// const F = new Vector3();
+// const I = new Vector3();
+// const O = new Vector3();
+// const V = new Vector3();
+// const B = new Vector3();
+// const N = new Vector3();
+// const _ = new Vector3();
+// const j = new Vector3();
+// const H = new Vector3();
+// const T = new Vector3();
 
 class Z extends InstancedMesh {
   config: typeof XConfig;
