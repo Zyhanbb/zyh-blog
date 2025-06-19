@@ -65,6 +65,7 @@ class ImageItem {
 
 class ImageTrailVariant1 {
   private container: HTMLDivElement;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   private DOM: { el: HTMLDivElement };
   private images: ImageItem[];
   private imagesTotal: number;
@@ -79,7 +80,7 @@ class ImageTrailVariant1 {
 
   constructor(container: HTMLDivElement) {
     this.container = container;
-    this.DOM = { el: container };
+    // this.DOM = { el: container };
     this.images = [...container.querySelectorAll(".content__img")].map(
       (img) => new ImageItem(img as HTMLDivElement)
     );
@@ -182,6 +183,7 @@ class ImageTrailVariant1 {
 }
 
 class ImageTrailVariant2 {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   private container: HTMLDivElement;
 //   private DOM: { el: HTMLDivElement };
   private images: ImageItem[];
@@ -196,8 +198,8 @@ class ImageTrailVariant2 {
   private cacheMousePos: { x: number; y: number };
 
   constructor(container: HTMLDivElement) {
-    this.container = container;
-    this.DOM = { el: container };
+    // this.container = container;
+    // this.DOM = { el: container };
     this.images = [...container.querySelectorAll(".content__img")].map(
       (img) => new ImageItem(img as HTMLDivElement)
     );
@@ -312,6 +314,7 @@ class ImageTrailVariant2 {
 }
 
 class ImageTrailVariant3 {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   private container: HTMLDivElement;
 //   private DOM: { el: HTMLDivElement };
   private images: ImageItem[];
@@ -326,8 +329,8 @@ class ImageTrailVariant3 {
   private cacheMousePos: { x: number; y: number };
 
   constructor(container: HTMLDivElement) {
-    this.container = container;
-    this.DOM = { el: container };
+    // this.container = container;
+    // this.DOM = { el: container };
     this.images = [...container.querySelectorAll(".content__img")].map(
       (img) => new ImageItem(img as HTMLDivElement)
     );
@@ -445,6 +448,7 @@ class ImageTrailVariant3 {
 }
 
 class ImageTrailVariant4 {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   private container: HTMLDivElement;
 //   private DOM: { el: HTMLDivElement };
   private images: ImageItem[];
@@ -459,8 +463,8 @@ class ImageTrailVariant4 {
   private cacheMousePos: { x: number; y: number };
 
   constructor(container: HTMLDivElement) {
-    this.container = container;
-    this.DOM = { el: container };
+    // this.container = container;
+    // this.DOM = { el: container };
     this.images = [...container.querySelectorAll(".content__img")].map(
       (img) => new ImageItem(img as HTMLDivElement)
     );
@@ -598,6 +602,7 @@ class ImageTrailVariant4 {
 }
 
 class ImageTrailVariant5 {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   private container: HTMLDivElement;
 //   private DOM: { el: HTMLDivElement };
   private images: ImageItem[];
@@ -613,8 +618,8 @@ class ImageTrailVariant5 {
   private lastAngle: number;
 
   constructor(container: HTMLDivElement) {
-    this.container = container;
-    this.DOM = { el: container };
+    // this.container = container;
+    // this.DOM = { el: container };
     this.images = [...container.querySelectorAll(".content__img")].map(
       (img) => new ImageItem(img as HTMLDivElement)
     );
@@ -743,6 +748,7 @@ class ImageTrailVariant5 {
 }
 
 class ImageTrailVariant6 {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   private container: HTMLDivElement;
 //   private DOM: { el: HTMLDivElement };
   private images: ImageItem[];
@@ -757,8 +763,8 @@ class ImageTrailVariant6 {
   private cacheMousePos: { x: number; y: number };
 
   constructor(container: HTMLDivElement) {
-    this.container = container;
-    this.DOM = { el: container };
+    // this.container = container;
+    // this.DOM = { el: container };
     this.images = [...container.querySelectorAll(".content__img")].map(
       (img) => new ImageItem(img as HTMLDivElement)
     );
@@ -913,6 +919,7 @@ function getNewPosition(position: number, offset: number, arr: ImageItem[]) {
 }
 
 class ImageTrailVariant7 {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //   private container: HTMLDivElement;
 //   private DOM: { el: HTMLDivElement };
   private images: ImageItem[];
@@ -929,8 +936,8 @@ class ImageTrailVariant7 {
   private visibleImagesTotal: number;
 
   constructor(container: HTMLDivElement) {
-    this.container = container;
-    this.DOM = { el: container };
+    // this.container = container;
+    // this.DOM = { el: container };
     this.images = [...container.querySelectorAll(".content__img")].map(
       (img) => new ImageItem(img as HTMLDivElement)
     );
