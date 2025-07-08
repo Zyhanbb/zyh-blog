@@ -1,54 +1,56 @@
-# React + TypeScript + Vite
+# hyc-blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这是一个基于 **React**、**TypeScript** 和 **Vite** 构建的个人博客项目，支持现代前端开发的最佳实践，包括模块热更新（HMR）、类型检查、代码风格校验等。
 
-Currently, two official plugins are available:
+可以进入网站[https://hanyuchen.top/ ](https://hanyuchen.top/)查看整个项目效果
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 项目特性
 
-## Expanding the ESLint configuration
+- ⚡️ 使用 Vite 作为构建工具，开发体验极佳
+- 🛠️ 使用 TypeScript 提升代码可维护性和可靠性
+- ⚛️ 基于 React 进行组件化开发
+- 🎨 支持全局样式与组件级样式
+- 🧩 结构清晰，便于扩展和维护
+- 🔍 集成 ESLint 进行代码质量检查
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 目录结构
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+hyc-blog/
+├── public/                # 静态资源目录
+│   ├── hyc.svg
+│   └── vite.svg
+├── src/                   # 源码目录
+│   ├── assets/            # 图片等静态资源
+│   ├── components/        # 复用组件
+│   ├── contexts/          # React 上下文
+│   ├── pages/             # 页面组件
+│   ├── styles/            # 全局样式
+│   ├── App.tsx            # 应用入口组件
+│   ├── main.tsx           # 应用挂载入口
+│   └── index.css          # 全局 CSS
+├── index.html             # HTML 模板
+├── package.json           # 项目依赖与脚本
+├── tsconfig.json          # TypeScript 配置
+├── vite.config.ts         # Vite 配置
+├── eslint.config.js       # ESLint 配置
+└── README.md              # 项目说明
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 详细介绍
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+引导页面（关于生日的页面）主要功能是参考的 [网站React Bits]([React Bits - Animated UI Components For React](https://www.reactbits.dev/text-animations/split-text))
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+包括海洋球（[ballpit](https://www.reactbits.dev/backgrounds/ballpit)）、点击进入按钮（[magnet](https://www.reactbits.dev/animations/magnet)）、欢迎文字（[decrypted-text](https://www.reactbits.dev/text-animations/decrypted-text)）、
+
+鼠标轨迹展示照片（[image-trail](https://www.reactbits.dev/animations/image-trail)）
+
+个人介绍页面主要亮点为：可进行**中英文**主题切换、**亮色暗色**主题切换、以及**自适应屏幕大小**
+
+
+
+本静态页面通过GitHub Pages服务托管，并配置自定义域名解析。
+
+个人主页非本人，该项目以及域名是作为生日礼物送给好朋友的。
+
+有任何问题，欢迎交流。本人邮箱：1275675187@qq.com
