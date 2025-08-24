@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext, type JSX } from 'react'
+import { useRef, useState, useContext, type JSX } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { MeshStandardMaterial } from 'three'
 import MyContext from '../../contexts/Context'
