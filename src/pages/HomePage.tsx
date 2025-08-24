@@ -1,40 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useLanguage } from '../contexts/LanguageContext.tsx';
 import profileImg from '../assets/images/hyc.png'; // 确保路径正确
-import { GithubOutlined, ZhihuOutlined, BilibiliOutlined} from '@ant-design/icons';
+import { GithubOutlined, ZhihuOutlined, BilibiliOutlined } from '@ant-design/icons';
 import TabbedList from '../components/TabbedList.tsx';
 import type { Tab, ListItem } from '../components/TabbedList.tsx';
 import ExperienceCard from '../components/ExperienceCard.tsx'
+import MyContext from '../contexts/Context.tsx';
+import Love from '../components/Love/index.tsx'
 const tabs: Tab[] = [
   { id: 'submitted', label: '在投', labelEn: 'Submitted' },
-  { id: 'papers',   label: '论文', labelEn: 'Papers' },
-  { id: 'patents',  label: '专利', labelEn: 'Patents' },
+  { id: 'papers', label: '论文', labelEn: 'Papers' },
+  { id: 'patents', label: '专利', labelEn: 'Patents' },
   { id: 'projects', label: '课题', labelEn: 'Projects' },
 ];
 
 const sampleData: Record<string, ListItem[]> = {
   submitted: [
-    { id: '1', title: 'Mapping Instruction to Text Diffusion Space for Diverse Text Generation',url:'https://ant.design/components/icon-cn' },
-    { id: '2', title: 'From Expert-Driven to AI-Driven: A New Framework for User-Centric Psychological Scale Item Generation Using Large Language Models', url:'https://ant.design/components/icon-cn' },
+    { id: '1', title: 'Mapping Instruction to Text Diffusion Space for Diverse Text Generation', url: 'https://ant.design/components/icon-cn' },
+    { id: '2', title: 'From Expert-Driven to AI-Driven: A New Framework for User-Centric Psychological Scale Item Generation Using Large Language Models', url: 'https://ant.design/components/icon-cn' },
     // …
   ],
   papers: [
-    { id: '1', title: 'Exploring Word Composition Knowledge In Language Usages, KSEM 2024',url:'https://link.springer.com/chapter/10.1007/978-981-97-5501-1_5' },
-    { id: '2', title: 'Unsupervised Paraphrasing under Syntax Knowledge, AAAI 2023', url:'https://dl.acm.org/doi/10.1609/aaai.v37i11.26558' },
+    { id: '1', title: 'Exploring Word Composition Knowledge In Language Usages, KSEM 2024', url: 'https://link.springer.com/chapter/10.1007/978-981-97-5501-1_5' },
+    { id: '2', title: 'Unsupervised Paraphrasing under Syntax Knowledge, AAAI 2023', url: 'https://dl.acm.org/doi/10.1609/aaai.v37i11.26558' },
     // …
   ],
-  patents: [ /* … */ 
-    { id: '1', title: '基于扩散模型的多样性可控文本生成方法和装置, ZL 2024 1 1008772.X',url:'https://zhuanli.tianyancha.com/c407b31ca078e74d9d7a0905beac05dc' },
-    { id: '2', title: '一种面向数据增强的词汇组合知识建模方法及装置, ZL 2024 1 0330986.2', url:'https://splab.sdu.edu.cn/info/1015/2267.htm' },
-    { id: '3', title: '一种基于子树库的多样性可控文本改写方法及装置, ZL 2024 1 0634369.1', url:'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
+  patents: [ /* … */
+    { id: '1', title: '基于扩散模型的多样性可控文本生成方法和装置, ZL 2024 1 1008772.X', url: 'https://zhuanli.tianyancha.com/c407b31ca078e74d9d7a0905beac05dc' },
+    { id: '2', title: '一种面向数据增强的词汇组合知识建模方法及装置, ZL 2024 1 0330986.2', url: 'https://splab.sdu.edu.cn/info/1015/2267.htm' },
+    { id: '3', title: '一种基于子树库的多样性可控文本改写方法及装置, ZL 2024 1 0634369.1', url: 'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
     // …
   ],
-  projects: [ /* … */ 
-    { id: '1', title: '基于扩散模型的多样性文本生成',url:'https://zhuanli.tianyancha.com/c407b31ca078e74d9d7a0905beac05dc' },
-    { id: '2', title: '文本空间与指令空间对齐', url:'https://splab.sdu.edu.cn/info/1015/2267.htm' },
-    { id: '3', title: '结构型知识融入的数据生成方法', url:'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
-    { id: '4', title: '心理测试量表项目多维度评估框架', url:'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
+  projects: [ /* … */
+    { id: '1', title: '基于扩散模型的多样性文本生成', url: 'https://zhuanli.tianyancha.com/c407b31ca078e74d9d7a0905beac05dc' },
+    { id: '2', title: '文本空间与指令空间对齐', url: 'https://splab.sdu.edu.cn/info/1015/2267.htm' },
+    { id: '3', title: '结构型知识融入的数据生成方法', url: 'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
+    { id: '4', title: '心理测试量表项目多维度评估框架', url: 'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
     // …
   ],
 
@@ -210,7 +212,25 @@ const CardLink = styled.span`
 
 const HomePage: React.FC = () => {
   const { t } = useLanguage();
+  const [data, setData] = useState<boolean>(false);
+  const [liked, setLiked] = useState(false);
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (!isMounted) {
+      setIsMounted(true);
+      return; // 防止在挂载时执行
+    }
+    else if (!liked) {
+      setLiked(true); // 第一次点击变红
+      console.log("datalike", liked)
+    } else {
+
+      console.log("datashake", data)
+    }
+
+  }, [data])
   return (
     <Container>
       <ProfileSection>
@@ -218,37 +238,55 @@ const HomePage: React.FC = () => {
           <img src={profileImg} alt={t.author} />
         </ProfileImage>
         <ProfileInfo>
-          <Name>{t.author}</Name>
+          <div style ={{display: 'flex'}}>
+            <Name>{t.author}</Name>
+            <MyContext.Provider value={{ data, setData }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  height: '44px',
+                  padding: '10px 0 0'
+                }}
+              >
+                <Love />
+                <p style={{ margin: "10px 0px" }}>点击小心心</p>
+
+              </div>
+            </MyContext.Provider>
+          </div>
           <Bio>{t.profile_desc}</Bio>
           <Bio>{t.bio}</Bio>
 
           <SocialLinks>
             <SocialIcon href="https://github.com/hyc619" target="_blank" rel="noopener noreferrer" title="GitHub">
-              <GithubOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
+              <GithubOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
             </SocialIcon>
             <SocialIcon href="https://www.zhihu.com/people/yi-xie-zhi-qiu-41-95" target="_blank" rel="noopener noreferrer" title="Zhihu">
-              <ZhihuOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
+              <ZhihuOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
             </SocialIcon>
             <SocialIcon href="https://space.bilibili.com/506432343?spm_id_from=333.1387.follow.user_card.click" title="Email">
-              <BilibiliOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}/>
+              <BilibiliOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
             </SocialIcon>
           </SocialLinks>
         </ProfileInfo>
+
       </ProfileSection>
 
-      <ExperienceCard/>
+      <ExperienceCard />
 
-     <div>
-      {/* 你想要放的位置 */}
-      <TabbedList
-        tabs={tabs}
-        data={sampleData}
-        defaultTabId="latest"
-      />
-      {/* 其它内容… */}
-    </div>
+      <div>
+        {/* 你想要放的位置 */}
+        <TabbedList
+          tabs={tabs}
+          data={sampleData}
+          defaultTabId="latest"
+        />
+        {/* 其它内容… */}
+      </div>
       <BlogsSection>
-      
+
         <BlogCards>
           <BlogCard href="https://blog.csdn.net/qq_45104795?type=blog">
             <CardTitle>{t.tech_blog}</CardTitle>
