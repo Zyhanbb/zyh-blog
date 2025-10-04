@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Ballpit from '../components/Ballpit';
+const Ballpit = lazy(() => import('../components/Ballpit'));
 import Magnet from '../components/Magnet';
-import ImageTrail from '../components/ImageTrail';
+const ImageTrail = lazy(() => import('../components/ImageTrail'));
 import '../components/ImageTrail.css';
-import photo1 from '../assets/images/photo/1.jpg'
-import photo2 from '../assets/images/photo/2.jpg'
-import photo3 from '../assets/images/photo/3.jpg'
-import photo4 from '../assets/images/photo/4.jpg'
-import photo5 from '../assets/images/photo/5.jpg'
-import photo6 from '../assets/images/photo/6.jpg'
-import photo7 from '../assets/images/photo/7.jpg'
-import photo8 from '../assets/images/photo/8.jpg'
-import photo9 from '../assets/images/photo/9.jpg'
-import photo10 from '../assets/images/photo/10.jpg'
-import photo11 from '../assets/images/photo/11.jpg'
-import photo12 from '../assets/images/photo/12.jpg'
-import photo13 from '../assets/images/photo/13.jpg'
-import DecryptedText from '../components/DecryptedText';
+// import photo1 from '../assets/images/photo/1.jpg'
+// import photo2 from '../assets/images/photo/2.jpg'
+// import photo3 from '../assets/images/photo/3.jpg'
+// import photo4 from '../assets/images/photo/4.jpg'
+// import photo5 from '../assets/images/photo/5.jpg'
+// import photo6 from '../assets/images/photo/6.jpg'
+// import photo7 from '../assets/images/photo/7.jpg'
+// import photo8 from '../assets/images/photo/8.jpg'
+// import photo9 from '../assets/images/photo/9.jpg'
+// import photo10 from '../assets/images/photo/10.jpg'
+// import photo11 from '../assets/images/photo/11.jpg'
+// import photo12 from '../assets/images/photo/12.jpg'
+// import photo13 from '../assets/images/photo/13.jpg'
+const DecryptedText = lazy(() => import('../components/DecryptedText'));
 
 const IntroContainer = styled.div`
   display: flex;
@@ -136,7 +136,7 @@ const IntroPage: React.FC = () => {
   const [showDecryptedText, setShowDecryptedText] = useState(false);
 
   // 判断屏幕宽度
-  let ballpitCount = 100;
+  let ballpitCount = 80;
   if (typeof window !== 'undefined') {
     if (window.matchMedia('(max-width: 440px)').matches) {
       ballpitCount = 30;
@@ -153,10 +153,10 @@ const IntroPage: React.FC = () => {
       }, 1000);
     }, 5000);
 
-    // 新增：页面加载3秒后显示DecryptedText
+    // 页面加载2秒后显示DecryptedText
     const decryptedTimer = setTimeout(() => {
       setShowDecryptedText(true);
-    }, 2500);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
@@ -168,30 +168,37 @@ const IntroPage: React.FC = () => {
     navigate('/main');
   };
 
-  const images = [
-    photo1,
-    photo2,
-    photo3,
-    photo4,
-    photo5,
-    photo6,
-    photo7,
-    photo8,
-    photo9,
-    photo10,
-    photo11,
-    photo12,
-    photo13,
-    // 'https://picsum.photos/id/287/300/300',
-    // 'https://picsum.photos/id/1001/300/300',
-    // 'https://picsum.photos/id/1025/300/300',
-    // 'https://picsum.photos/id/1026/300/300',
-    // 'https://picsum.photos/id/1027/300/300',
-    // 'https://picsum.photos/id/1028/300/300',
-    // 'https://picsum.photos/id/1029/300/300',
-    // 'https://picsum.photos/id/1030/300/300',
-  ];
-
+  // const images = [
+  //   photo1,
+  //   photo2,
+  //   photo3,
+  //   photo4,
+  //   photo5,
+  //   photo6,
+  //   photo7,
+  //   photo8,
+  //   photo9,
+  //   photo10,
+  //   photo11,
+  //   photo12,
+  //   photo13,
+  // ];
+// 使用public目录路径，确保构建后路径正确
+const images = [
+  '/images/photo/1.jpg',
+  '/images/photo/2.jpg',
+  '/images/photo/3.jpg',
+  '/images/photo/4.jpg',
+  '/images/photo/5.jpg',
+  '/images/photo/6.jpg',
+  '/images/photo/7.jpg',
+  '/images/photo/8.jpg',
+  '/images/photo/9.jpg',
+  '/images/photo/10.jpg',
+  '/images/photo/11.jpg',
+  '/images/photo/12.jpg',
+  '/images/photo/13.jpg',
+];
   return (
     <IntroContainer>
       <ImageTrailContainer>
