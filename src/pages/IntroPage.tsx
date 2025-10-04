@@ -18,7 +18,7 @@ import '../components/ImageTrail.css';
 // import photo11 from '../assets/images/photo/11.jpg'
 // import photo12 from '../assets/images/photo/12.jpg'
 // import photo13 from '../assets/images/photo/13.jpg'
-const DecryptedText = lazy(() => import('../components/DecryptedText'));
+// const DecryptedText = lazy(() => import('../components/DecryptedText')); // 已替换为CSS动画
 
 const IntroContainer = styled.div`
   display: flex;
@@ -50,6 +50,41 @@ const Title = styled.h1`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   @media (max-width: 768px) {
     font-size: 2rem;
+  }
+`;
+
+// 字符逐个出现效果
+const CharByCharText = styled.div`
+  display: inline-block;
+  
+  span {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  
+  span:nth-child(1) { animation-delay: 0.1s; }
+  span:nth-child(2) { animation-delay: 0.2s; }
+  span:nth-child(3) { animation-delay: 0.3s; }
+  span:nth-child(4) { animation-delay: 0.4s; }
+  span:nth-child(5) { animation-delay: 0.5s; }
+  span:nth-child(6) { animation-delay: 0.6s; }
+  span:nth-child(7) { animation-delay: 0.7s; }
+  span:nth-child(8) { animation-delay: 0.8s; }
+  span:nth-child(9) { animation-delay: 0.9s; }
+  span:nth-child(10) { animation-delay: 1.0s; }
+  span:nth-child(11) { animation-delay: 1.1s; }
+  span:nth-child(12) { animation-delay: 1.2s; }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
@@ -231,15 +266,11 @@ const images = [
       
       {showDecryptedText && (
         <Title>
-          <DecryptedText
-            text="欢迎来到郑依涵的博客"
-            animateOn="view"
-            speed={100}
-            maxIterations={100}
-            sequential={true}
-            revealDirection="start"
-            useOriginalCharsOnly={true}
-          />
+          <CharByCharText>
+            {'欢迎来到郑依涵的博客！'.split('').map((char, index) => (
+              <span key={index}>{char}</span>
+            ))}
+          </CharByCharText>
         </Title>
       )}
         
