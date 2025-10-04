@@ -191,7 +191,7 @@ const Header: React.FC = () => {
 
   return (
     <HeaderContainer>
-      <Logo>HYC Blog</Logo>
+      <Logo>ZYH Blog</Logo>
       <Controls1>
         <ToggleButton onClick={toggleTheme} title={t.theme_toggle_label}>
           {theme === 'light' ? '🌙' : '☀️'}
@@ -208,8 +208,8 @@ const Header: React.FC = () => {
           <StyledLink to="/" onClick={() => setIsOpen(false)}>{t.home}</StyledLink>
           {/* <StyledLink to="/tech" onClick={() => setIsOpen(false)}>{t.tech_blog}</StyledLink>
           <StyledLink to="/life" onClick={() => setIsOpen(false)}>{t.life_blog}</StyledLink> */}
-          <StyledLink2 href="https://weibo.com/u/6885353494" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.tech_blog}</StyledLink2>
-          <StyledLink2 href="https://blog.csdn.net/qq_45104795?type=blog" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.life_blog}</StyledLink2>
+          <StyledLink2 as="a" href="https://weibo.com/u/5579929001" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.tech_blog}</StyledLink2>
+          <StyledLink2 as="a" href="https://blog.csdn.net/YiHanXii?type=blog" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>{t.life_blog}</StyledLink2>
         </NavItems>
       </Nav>
       <Controls>

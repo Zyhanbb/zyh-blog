@@ -36,8 +36,8 @@ const translations: Record<'zh' | 'en', Translation> = {
     tech_blog_desc: "技术趋势、经验教程、学习笔记。",
     life_blog_desc: "旅行经历、美食推荐、个人故事。",
     profile_desc:
-      "目前就读于山东大学，正在攻读博士学位，研究方向为自然语言处理。导师是孙宇清教授。",
-    author: "韩雨辰",
+      "目前就读于山东大学，正在苦苦秋招，研究方向为自然语言处理。导师是刘磊教授。",
+    author: "郑依涵",
     tech_blog_link: "技术博客 →",
     life_blog_link: "生活博客 →",
     theme_toggle_label: "主题",
@@ -45,7 +45,7 @@ const translations: Record<'zh' | 'en', Translation> = {
     all_rights_reserved: "保留所有权利。",
     education: "教育经历",
     work_experience: "工作经历",
-    bio: "2000年6月19日 | 双子座 | ISTJ | 江苏徐州人",
+    bio: "2000年3月27日 | 白羊座 | ESTJ | 浙江温州人",
   },
   en: {
     home: "Home",
@@ -57,8 +57,8 @@ const translations: Record<'zh' | 'en', Translation> = {
     life_blog_desc:
       "Travel, food, personal stories...",
     profile_desc:
-      "Currently studying at Shandong University, pursuing a PhD, research direction is NLP. Supervisor: Prof. Sun Yuqing.",
-    author: "Yuchen Han",
+      "Currently studying at Shandong University, research direction is NLP. Supervisor: Prof.Lei Liu.",
+    author: "Yihan Zheng",
     tech_blog_link: "Tech Blog →",
     life_blog_link: "Life Blog →",
     theme_toggle_label: "Theme",
@@ -66,7 +66,7 @@ const translations: Record<'zh' | 'en', Translation> = {
     all_rights_reserved: "All rights reserved.",
     education: "Education",
     work_experience: "Work",
-    bio: "2000.6.19 | Gemini | ISTJ | Xuzhou, China",
+    bio: "2000.3.27 | Aries | ESTJ | Wenzhou, China",
   },
 };
 

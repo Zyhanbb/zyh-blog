@@ -14,7 +14,9 @@ export interface Tab {
 export interface ListItem {
   id: string;      // 列表项的唯一标识符
   title: string;   // 列表项的标题
-  url: string;     // 列表项点击后跳转的URL
+  url?: string;        // 改为可选，因为现在可能不需要跳转
+  images?: string[];   // 新增：图片列表
+  type?: 'link' | 'carousel'; // 新增：类型标识
 
 }
 
@@ -24,6 +26,7 @@ interface TabbedListProps {
   data: Record<string, ListItem[]>;  // 数据对象，key是标签页id，value是对应的列表数据
   defaultTabId?: string;             // 默认选中的标签页id
   itemsPerPage?: number;             // 每页显示的项目数量
+  onItemClick?: (item: ListItem) => void; // 新增：点击回调函数
 }
 
 // TabbedList组件：一个带有标签页的列表组件
@@ -31,6 +34,7 @@ const TabbedList: React.FC<TabbedListProps> = ({
   tabs,
   data,
   itemsPerPage = 4,  // 默认每页显示5条
+  onItemClick,
 }) => {
   const { lang } = useLanguage();  // 获取当前语言
   // 使用useState管理当前激活的标签页
@@ -77,12 +81,22 @@ const TabbedList: React.FC<TabbedListProps> = ({
           {currentItems.map(item => (
             <ListItemRow 
               key={item.id}
-              onClick={() => window.location.href = item.url}
+              onClick={() => {
+                if (onItemClick) {
+                  onItemClick(item);
+                } else if (item.url) {
+                  window.location.href = item.url;
+                }
+              }}
               role="link"
               tabIndex={0}
               onKeyPress={(e) => {
                 if (e.key === 'Enter') {
-                  window.location.href = item.url;
+                  if (onItemClick) {
+                    onItemClick(item);
+                  } else if (item.url) {
+                    window.location.href = item.url;
+                  }
                 }
               }}
             >

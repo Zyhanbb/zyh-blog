@@ -13,13 +13,13 @@ const ExperienceCard: React.FC = () => {
           <ContentText>浙大宁波理工学院-信息与计算科学专业-理学学士</ContentText>
 
           <TimeText>2022.9-至今</TimeText>
-          <ContentText>山东大学-软件工程专业-工学博士</ContentText>
+          <ContentText>山东大学-软件工程专业-工学硕士</ContentText>
         </ContentWrapper>
       </StyledCard>
       <StyledCard title={t.work_experience}>
         <ContentWrapper>
           <TimeText>2018.9-至今</TimeText>
-          <ContentText>郑依涵管理员</ContentText>
+          <ContentText>韩雨辰管理员</ContentText>
 
           <TimeText>2003.9-至今</TimeText>
           <ContentText>学生</ContentText>

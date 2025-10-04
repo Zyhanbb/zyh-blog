@@ -221,11 +221,11 @@ const IntroPage: React.FC = () => {
         />
       </BallpitContainer>
       <ContentContainer>
-      <Title>生日快乐！</Title>
+      
       {showDecryptedText && (
         <Title>
           <DecryptedText
-            text="欢迎来到韩雨辰的博客"
+            text="欢迎来到郑依涵的博客"
             animateOn="view"
             speed={100}
             maxIterations={100}

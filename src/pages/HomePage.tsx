@@ -1,42 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useLanguage } from '../contexts/LanguageContext.tsx';
-import profileImg from '../assets/images/hyc.png'; // 确保路径正确
+import profileImg from '../assets/images/zyh.jpg'; // 确保路径正确
 import { GithubOutlined, ZhihuOutlined, BilibiliOutlined } from '@ant-design/icons';
+import { Modal } from 'antd';
 import TabbedList from '../components/TabbedList.tsx';
 import type { Tab, ListItem } from '../components/TabbedList.tsx';
 import ExperienceCard from '../components/ExperienceCard.tsx'
 import MyContext from '../contexts/Context.tsx';
 import Love from '../components/Love/index.tsx'
+import ImageCarousel from '../components/Carousel.tsx';
 const tabs: Tab[] = [
-  { id: 'submitted', label: '在投', labelEn: 'Submitted' },
-  { id: 'papers', label: '论文', labelEn: 'Papers' },
-  { id: 'patents', label: '专利', labelEn: 'Patents' },
-  { id: 'projects', label: '课题', labelEn: 'Projects' },
+  { id: 'submitted', label: '科研成果', labelEn: 'Research Achievements' },
+  { id: 'papers', label: '一些特长', labelEn: 'Skills & Hobbies' },
+  { id: 'patents', label: '个人缺点', labelEn: 'Personal Weaknesses' },
+  //{ id: 'projects', label: '课题', labelEn: 'Projects' },
 ];
 
 const sampleData: Record<string, ListItem[]> = {
   submitted: [
-    { id: '1', title: 'Mapping Instruction to Text Diffusion Space for Diverse Text Generation', url: 'https://ant.design/components/icon-cn' },
-    { id: '2', title: 'From Expert-Driven to AI-Driven: A New Framework for User-Centric Psychological Scale Item Generation Using Large Language Models', url: 'https://ant.design/components/icon-cn' },
+    { id: '1', title: '论文：A Hybrid Pipeline and Large Language Model System for Task-Oriented Dialogue（CCFC类会议，第一作者）', url: 'https://ant.design/components/icon-cn' },
+    { id: '2', title: '专利：基于知识图谱嵌入和大语言模型的链接预测方法及系统（专利号：202510291117）', url: 'https://xueshu.baidu.com/ndscholar/browse/detail?paperid=1n090cf01w2q0g205r2k0pc0ac026064' },
     // …
   ],
   papers: [
-    { id: '1', title: 'Exploring Word Composition Knowledge In Language Usages, KSEM 2024', url: 'https://link.springer.com/chapter/10.1007/978-981-97-5501-1_5' },
-    { id: '2', title: 'Unsupervised Paraphrasing under Syntax Knowledge, AAAI 2023', url: 'https://dl.acm.org/doi/10.1609/aaai.v37i11.26558' },
+    { 
+      id: '1', 
+      title: '铅笔微雕', 
+      type: 'carousel',
+      images: [
+        '/src/assets/images/weidiao/1.jpg',
+        '/src/assets/images/weidiao/2.jpg',
+        '/src/assets/images/weidiao/3.jpg',
+        '/src/assets/images/weidiao/4.jpg',
+        '/src/assets/images/weidiao/5.jpg',
+        '/src/assets/images/weidiao/6.jpg',
+        '/src/assets/images/weidiao/7.jpg'
+      ]
+    },
+    { 
+      id: '2', 
+      title: '田径', 
+      type: 'carousel',
+      images: [
+        '/src/assets/images/tianjing/1.jpg',
+        '/src/assets/images/tianjing/2.jpg'
+      ] 
+    },
+    { 
+      id: '3', 
+      title: '摄影', 
+      type: 'carousel',
+      images: [
+        '/src/assets/images/sheying/1.jpg',
+        '/src/assets/images/sheying/2.jpg',
+        '/src/assets/images/sheying/3.jpg',
+        '/src/assets/images/sheying/4.jpg',
+        '/src/assets/images/sheying/5.jpg',
+        '/src/assets/images/sheying/6.jpg'
+      ]
+    },
     // …
   ],
   patents: [ /* … */
-    { id: '1', title: '基于扩散模型的多样性可控文本生成方法和装置, ZL 2024 1 1008772.X', url: 'https://zhuanli.tianyancha.com/c407b31ca078e74d9d7a0905beac05dc' },
-    { id: '2', title: '一种面向数据增强的词汇组合知识建模方法及装置, ZL 2024 1 0330986.2', url: 'https://splab.sdu.edu.cn/info/1015/2267.htm' },
-    { id: '3', title: '一种基于子树库的多样性可控文本改写方法及装置, ZL 2024 1 0634369.1', url: 'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
-    // …
+    { id: '1', title: '无' } // …
   ],
   projects: [ /* … */
-    { id: '1', title: '基于扩散模型的多样性文本生成', url: 'https://zhuanli.tianyancha.com/c407b31ca078e74d9d7a0905beac05dc' },
-    { id: '2', title: '文本空间与指令空间对齐', url: 'https://splab.sdu.edu.cn/info/1015/2267.htm' },
-    { id: '3', title: '结构型知识融入的数据生成方法', url: 'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
-    { id: '4', title: '心理测试量表项目多维度评估框架', url: 'https://xueshu.baidu.com/usercenter/paper/show?paperid=173u0xt0nk3k0au0sv4q0ry0eb641909&site=xueshu_se' },
+    { id: '1', title: '无' },
+   
     // …
   ],
 
@@ -47,6 +78,8 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 1.5rem;
 `;
+
+
 
 const ProfileSection = styled.section`
   display: flex;
@@ -214,8 +247,12 @@ const HomePage: React.FC = () => {
   const { t } = useLanguage();
   const [data, setData] = useState<boolean>(false);
   const [liked, setLiked] = useState(false);
-
   const [isMounted, setIsMounted] = useState(false);
+  
+  // 模态框相关状态
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [selectedTitle, setSelectedTitle] = useState('');
 
   useEffect(() => {
     if (!isMounted) {
@@ -231,6 +268,18 @@ const HomePage: React.FC = () => {
     }
 
   }, [data])
+
+  // 处理列表项点击事件
+  const handleItemClick = (item: ListItem) => {
+    if (item.type === 'carousel' && item.images) {
+      setSelectedImages(item.images);
+      setSelectedTitle(item.title);
+      setIsModalVisible(true);
+    } else if (item.url) {
+      window.open(item.url, '_blank');
+    }
+  };
+
   return (
     <Container>
       <ProfileSection>
@@ -260,13 +309,13 @@ const HomePage: React.FC = () => {
           <Bio>{t.bio}</Bio>
 
           <SocialLinks>
-            <SocialIcon href="https://github.com/hyc619" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <SocialIcon href="https://github.com/Zyhanbb" target="_blank" rel="noopener noreferrer" title="GitHub">
               <GithubOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
             </SocialIcon>
             <SocialIcon href="https://www.zhihu.com/people/yi-xie-zhi-qiu-41-95" target="_blank" rel="noopener noreferrer" title="Zhihu">
               <ZhihuOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
             </SocialIcon>
-            <SocialIcon href="https://space.bilibili.com/506432343?spm_id_from=333.1387.follow.user_card.click" title="Email">
+            <SocialIcon href="https://space.bilibili.com/486529119?spm_id_from=333.1007.follow.user_card.click" title="Email">
               <BilibiliOutlined style={{ fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
             </SocialIcon>
           </SocialLinks>
@@ -282,20 +331,21 @@ const HomePage: React.FC = () => {
           tabs={tabs}
           data={sampleData}
           defaultTabId="latest"
+          onItemClick={handleItemClick}
         />
         {/* 其它内容… */}
       </div>
       <BlogsSection>
 
         <BlogCards>
-          <BlogCard href="https://blog.csdn.net/qq_45104795?type=blog">
+          <BlogCard href="https://blog.csdn.net/YiHanXii?type=blog" target="_blank" rel="noopener noreferrer">
             <CardTitle>{t.tech_blog}</CardTitle>
             <CardDescription>{t.tech_blog_desc}</CardDescription>
             <CardFooter>
               <CardLink>{t.tech_blog_link}</CardLink>
             </CardFooter>
           </BlogCard>
-          <BlogCard href="https://weibo.com/u/6885353494">
+          <BlogCard href="https://weibo.com/u/5579929001" target="_blank" rel="noopener noreferrer">
             <CardTitle>{t.life_blog}</CardTitle>
             <CardDescription>{t.life_blog_desc}</CardDescription>
             <CardFooter>
@@ -304,6 +354,24 @@ const HomePage: React.FC = () => {
           </BlogCard>
         </BlogCards>
       </BlogsSection>
+
+      {/* 图片轮播模态框 */}
+      <Modal
+        title={selectedTitle}
+        open={isModalVisible}
+        onCancel={() => setIsModalVisible(false)}
+        footer={null}
+        width="800px"
+        centered
+        destroyOnClose
+      >
+        <ImageCarousel 
+          images={selectedImages}
+          height="550px"
+          autoplay={true}
+          autoplaySpeed={3000}
+        />
+      </Modal>
     </Container>
   );
 };
