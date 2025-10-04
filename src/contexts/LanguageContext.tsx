@@ -36,7 +36,7 @@ const translations: Record<'zh' | 'en', Translation> = {
     tech_blog_desc: "技术趋势、经验教程、学习笔记。",
     life_blog_desc: "旅行经历、美食推荐、个人故事。",
     profile_desc:
-      "目前就读于山东大学，正在苦苦秋招，研究方向为自然语言处理。导师是刘磊教授。",
+      "目前就读于山东大学，正在苦苦秋招（前端），研究方向为自然语言处理。导师是刘磊教授。",
     author: "郑依涵",
     tech_blog_link: "技术博客 →",
     life_blog_link: "生活博客 →",
@@ -57,7 +57,7 @@ const translations: Record<'zh' | 'en', Translation> = {
     life_blog_desc:
       "Travel, food, personal stories...",
     profile_desc:
-      "Currently studying at Shandong University, research direction is NLP. Supervisor: Prof.Lei Liu.",
+      "Currently studying at Shandong University, looking for a job (Web Frontend). Research direction is NLP. Supervisor: Prof.Lei Liu.",
     author: "Yihan Zheng",
     tech_blog_link: "Tech Blog →",
     life_blog_link: "Life Blog →",

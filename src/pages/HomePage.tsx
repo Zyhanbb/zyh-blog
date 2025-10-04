@@ -10,6 +10,27 @@ import ExperienceCard from '../components/ExperienceCard.tsx'
 import MyContext from '../contexts/Context.tsx';
 import Love from '../components/Love/index.tsx'
 import ImageCarousel from '../components/Carousel.tsx';
+
+// 导入微雕图片
+import weidiao1 from '../assets/images/weidiao/1.jpg';
+import weidiao2 from '../assets/images/weidiao/2.jpg';
+import weidiao3 from '../assets/images/weidiao/3.jpg';
+import weidiao4 from '../assets/images/weidiao/4.jpg';
+import weidiao5 from '../assets/images/weidiao/5.jpg';
+import weidiao6 from '../assets/images/weidiao/6.jpg';
+import weidiao7 from '../assets/images/weidiao/7.jpg';
+
+// 导入田径图片
+import tianjing1 from '../assets/images/tianjing/1.jpg';
+import tianjing2 from '../assets/images/tianjing/2.jpg';
+
+// 导入摄影图片
+import sheying1 from '../assets/images/sheying/1.jpg';
+import sheying2 from '../assets/images/sheying/2.jpg';
+import sheying3 from '../assets/images/sheying/3.jpg';
+import sheying4 from '../assets/images/sheying/4.jpg';
+import sheying5 from '../assets/images/sheying/5.jpg';
+import sheying6 from '../assets/images/sheying/6.jpg';
 const tabs: Tab[] = [
   { id: 'submitted', label: '科研成果', labelEn: 'Research Achievements' },
   { id: 'papers', label: '一些特长', labelEn: 'Skills & Hobbies' },
@@ -29,13 +50,13 @@ const sampleData: Record<string, ListItem[]> = {
       title: '铅笔微雕', 
       type: 'carousel',
       images: [
-        '/src/assets/images/weidiao/1.jpg',
-        '/src/assets/images/weidiao/2.jpg',
-        '/src/assets/images/weidiao/3.jpg',
-        '/src/assets/images/weidiao/4.jpg',
-        '/src/assets/images/weidiao/5.jpg',
-        '/src/assets/images/weidiao/6.jpg',
-        '/src/assets/images/weidiao/7.jpg'
+        weidiao1,
+        weidiao2,
+        weidiao3,
+        weidiao4,
+        weidiao5,
+        weidiao6,
+        weidiao7
       ]
     },
     { 
@@ -43,8 +64,8 @@ const sampleData: Record<string, ListItem[]> = {
       title: '田径', 
       type: 'carousel',
       images: [
-        '/src/assets/images/tianjing/1.jpg',
-        '/src/assets/images/tianjing/2.jpg'
+        tianjing1,
+        tianjing2
       ] 
     },
     { 
@@ -52,12 +73,12 @@ const sampleData: Record<string, ListItem[]> = {
       title: '摄影', 
       type: 'carousel',
       images: [
-        '/src/assets/images/sheying/1.jpg',
-        '/src/assets/images/sheying/2.jpg',
-        '/src/assets/images/sheying/3.jpg',
-        '/src/assets/images/sheying/4.jpg',
-        '/src/assets/images/sheying/5.jpg',
-        '/src/assets/images/sheying/6.jpg'
+        sheying1,
+        sheying2,
+        sheying3,
+        sheying4,
+        sheying5,
+        sheying6
       ]
     },
     // …
