@@ -41,9 +41,7 @@ zyh-blog/
 
 引导页面（关于生日的页面）主要功能是参考的 [网站React Bits]([React Bits - Animated UI Components For React](https://www.reactbits.dev/text-animations/split-text))
 
-包括海洋球（[ballpit](https://www.reactbits.dev/backgrounds/ballpit)）、点击进入按钮（[magnet](https://www.reactbits.dev/animations/magnet)）、欢迎文字（[decrypted-text](https://www.reactbits.dev/text-animations/decrypted-text)）、
-
-鼠标轨迹展示照片（[image-trail](https://www.reactbits.dev/animations/image-trail)）
+包括海洋球（[ballpit](https://www.reactbits.dev/backgrounds/ballpit)）、点击进入按钮（[magnet](https://www.reactbits.dev/animations/magnet)）、鼠标轨迹展示照片（[image-trail](https://www.reactbits.dev/animations/image-trail)）
 
 个人介绍页面主要亮点为：可进行**中英文**主题切换、**亮色暗色**主题切换、以及**自适应屏幕大小**
 
@@ -51,6 +49,6 @@ zyh-blog/
 
 本静态页面通过GitHub Pages服务托管，并配置自定义域名解析。
 
-个人主页非本人，该项目以及域名是作为生日礼物送给好朋友的。
+
 
 有任何问题，欢迎交流。本人邮箱：1275675187@qq.com
