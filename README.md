@@ -1,8 +1,8 @@
-# hyc-blog
+# zyh-blog
 
 这是一个基于 **React**、**TypeScript** 和 **Vite** 构建的个人博客项目，支持现代前端开发的最佳实践，包括模块热更新（HMR）、类型检查、代码风格校验等。
 
-可以进入网站[https://hanyuchen.top/ ](https://hanyuchen.top/)查看整个项目效果
+可以进入网站[https://zhengyihan.com/ ](https://zhengyihan.com/)查看整个项目效果
 
 ## 项目特性
 
@@ -16,9 +16,9 @@
 ## 目录结构
 
 ```
-hyc-blog/
+zyh-blog/
 ├── public/                # 静态资源目录
-│   ├── hyc.svg
+│   ├── sun.svg
 │   └── vite.svg
 ├── src/                   # 源码目录
 │   ├── assets/            # 图片等静态资源
